@@ -64,7 +64,7 @@ int swap(unsigned int line_number);
 int add(unsigned int line_number);
 int sub(unsigned int line_number);
 int mul(unsigned int line_number);
-int div_op(unsigned int line_number);
+int _div(unsigned int line_number);
 int mod(unsigned int line_number);
 
 #endif /* _MONTY_H_ */

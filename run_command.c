@@ -23,7 +23,7 @@ int run_command_complement(char **tokens, unsigned int line_number)
 		exit_status = mul(line_number);
 		break;
 	case DIV:
-		exit_status = div_op(line_number);
+		exit_status = _div(line_number);
 		break;
 	case MOD:
 		exit_status = mod(line_number);

@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * div_op - Divides top two elements of stack, pops them, and pushes quotient.
+ * _div - Divides top two elements of stack, pops them, and pushes quotient.
  * @line_number: The line number of the current instruction.
  *
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
  */
-int div_op(unsigned int line_number)
+int _div(unsigned int line_number)
 {
 	int quotient;
 	stack_t *top = stack;
