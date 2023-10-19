@@ -7,19 +7,19 @@
  */
 void rotl(void)
 {
-    if (stack != NULL && stack->next != NULL)
-    {
-        stack_t *top = stack;
-        stack_t *bottom = stack;
+	if (stack != NULL && stack->next != NULL)
+	{
+		stack_t *top = stack;
+		stack_t *bottom = stack;
 
-        stack = stack->next;
-        stack->prev = NULL;
+		stack = stack->next;
+		stack->prev = NULL;
 
-        while (bottom->next != NULL)
-            bottom = bottom->next;
+		while (bottom->next != NULL)
+			bottom = bottom->next;
 
-        bottom->next = top;
-        top->next = NULL;
-        top->prev = bottom;
-    }
+		bottom->next = top;
+		top->next = NULL;
+		top->prev = bottom;
+	}
 }
