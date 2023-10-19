@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "monty.h"
+
+stack_t *stack = NULL;
 
 /**
  * main - Entry point for the Monty ByteCodes Interpreter
@@ -23,32 +23,14 @@
  */
 int main(int argc, char *argv[])
 {
-	char *line, *token;
-	size_t i, j;
-	size_t input_size = 1024, read_size;
-	FILE *file = fopen(argv[1], "r");
-
 	if (argc != 2)
-		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
-
-	if (file == NULL)
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
-
-	for (i = 1; read_size = getline(&line, &input_size, file) != EOF; i++)
 	{
-		if (read_size > 0 && line[read_size - 1] == '\n')
-			line[read_size - 1] = '\0';
-
-		token = strtok(line, " ");
-		for (j = 0; token != NULL && j < 2; j++)
-		{
-			printf("Line %d | Token %d: %s\n", i, j, token);
-			token = strtok(NULL, " ");
-		}
+		fprintf(stderr, "%s\n", "USAGE: monty file\n");
+		return (EXIT_FAILURE);
 	}
 
-	fclose(file);
-	free(line);
+	interpret_file(argv[1]);
+	free_stack();
 
-	return (0);
+	return (EXIT_SUCCESS);
 }
