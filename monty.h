@@ -14,6 +14,10 @@
 #define MOD 10
 #define PCHAR 11
 #define PSTR 12
+#define ROTL 13
+#define ROTR 14
+#define STACK 15
+#define QUEUE 16
 #define INVALID_OPCODE -1
 
 #include <stdio.h>
@@ -69,6 +73,8 @@ int pint(unsigned int line_number);
 int pchar(unsigned int line_number);
 int pstr(void);
 void pall(void);
+void rotr(void);
+void rotl(void);
 int swap(unsigned int line_number);
 int add(unsigned int line_number);
 int sub(unsigned int line_number);

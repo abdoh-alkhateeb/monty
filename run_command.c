@@ -47,9 +47,6 @@ int run_command(char **tokens, unsigned int line_number)
 {
 	short int exit_status = EXIT_SUCCESS;
 
-	if (tokens[0] == NULL)
-		exit(EXIT_FAILURE);
-
 	switch (opcode_to_const(tokens[0]))
 	{
 	case PUSH:
@@ -72,6 +69,12 @@ int run_command(char **tokens, unsigned int line_number)
 		break;
 	case SWAP:
 		exit_status = swap(line_number);
+		break;
+	case ROTR:
+		rotr();
+		break;
+	case ROTL:
+		rotl();
 		break;
 	case NOP:
 		break;

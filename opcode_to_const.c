@@ -39,6 +39,10 @@ int opcode_to_const(char *opcode)
 		return (PCHAR);
 	if (strcmp(opcode, "pstr") == 0)
 		return (PSTR);
+	if (strcmp(opcode, "rotl") == 0)
+		return (ROTL);
+	if (strcmp(opcode, "rotr") == 0)
+		return (ROTR);
 
 	return (INVALID_OPCODE);
 }
