@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
 	}
 
 	interpret_file(argv[1]);
-	free_stack();
 
 	return (EXIT_SUCCESS);
 }

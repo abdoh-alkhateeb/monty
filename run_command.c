@@ -29,7 +29,7 @@ int run_command_complement(char **tokens, unsigned int line_number)
 		exit_status = mod(line_number);
 		break;
 	default:
-		fprintf(stderr, "L%i: unknown instruction %s\n", line_number, tokens[0]);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, tokens[0]);
 		exit_status = EXIT_FAILURE;
 	}
 

@@ -17,7 +17,7 @@ int push(char *integer, unsigned int line_number)
 		return (EXIT_FAILURE);
 	}
 
-	new_node = malloc(sizeof(stack_t));
+	new_node = (stack_t *)malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 	{
@@ -26,18 +26,12 @@ int push(char *integer, unsigned int line_number)
 	}
 
 	new_node->n = atoi(integer);
+	new_node->prev = NULL;
 
-	if (stack)
-	{
-		new_node->next = stack;
+	if (stack != NULL)
 		stack->prev = new_node;
-	}
-	else
-	{
-		new_node->next = NULL;
-		new_node->prev = NULL;
-	}
 
+	new_node->next = stack;
 	stack = new_node;
 
 	return (EXIT_SUCCESS);

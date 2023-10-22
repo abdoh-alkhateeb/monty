@@ -9,7 +9,7 @@
 void interpret_file(char *filename)
 {
 	FILE *fp;
-	char *line = NULL;
+	char *line = NULL, *p;
 	char **tokens;
 	int exit_status;
 	size_t line_length = 1024, line_number;
@@ -24,7 +24,10 @@ void interpret_file(char *filename)
 
 	for (line_number = 1; getline(&line, &line_length, fp) != EOF; line_number++)
 	{
-		*strchr(line, '\n') = '\0';
+		p = strchr(line, '\n');
+
+		if (p)
+			*p = '\0';
 
 		if (strlen(line) == 0)
 			continue;
@@ -38,14 +41,10 @@ void interpret_file(char *filename)
 		free(tokens);
 
 		if (exit_status == EXIT_FAILURE)
-		{
-			free_stack();
-			exit(EXIT_FAILURE);
-		}
+			free_stack(), exit(EXIT_FAILURE);
 	}
 
-	if (line != NULL)
-		free(line);
-
+	free(line);
+	free_stack();
 	fclose(fp);
 }
