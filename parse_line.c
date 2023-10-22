@@ -23,8 +23,8 @@ char **parse_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 
-	tokens[0] = strtok(line, " \n");
-	tokens[1] = strtok(NULL, " \n");
+	tokens[0] = strtok(line, " ");
+	tokens[1] = strtok(NULL, " ");
 
 	return (tokens);
 }

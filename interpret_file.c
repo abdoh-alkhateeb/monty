@@ -24,12 +24,17 @@ void interpret_file(char *filename)
 
 	for (line_number = 1; getline(&line, &line_length, fp) != EOF; line_number++)
 	{
-		if (strlen(line) == 0 || line[0] == '\n')
+		*strchr(line, '\n') = '\0';
+
+		if (strlen(line) == 0)
 			continue;
 
 		tokens = parse_line(line);
-		exit_status = run_command(tokens, line_number);
 
+		if (tokens[0] == NULL)
+			continue;
+
+		exit_status = run_command(tokens, line_number);
 		free(tokens);
 
 		if (exit_status == EXIT_FAILURE)
