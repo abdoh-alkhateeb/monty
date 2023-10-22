@@ -11,9 +11,9 @@ int push(char *integer, unsigned int line_number)
 {
 	stack_t *new_node;
 
-	if (integer == NULL || is_integer(integer) == 0)
+	if (integer == NULL || is_integer(integer) == false)
 	{
-		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		return (EXIT_FAILURE);
 	}
 

@@ -10,7 +10,7 @@ int pint(unsigned int line_number)
 {
 	if (stack == NULL)
 	{
-		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		return (EXIT_FAILURE);
 	}
 
