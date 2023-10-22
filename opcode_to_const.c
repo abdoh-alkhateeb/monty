@@ -8,11 +8,6 @@
  */
 int opcode_to_const(char *opcode)
 {
-	char *p;
-
-	for (p = opcode; *p; ++p)
-		*p = tolower(*p);
-
 	if (strcmp(opcode, "push") == 0)
 		return (PUSH);
 	if (strcmp(opcode, "pall") == 0)
