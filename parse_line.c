@@ -15,7 +15,7 @@ char **parse_line(char *line)
 	if (line == NULL)
 		return (NULL);
 
-	tokens = malloc(sizeof(char *) * 2);
+	tokens = (char **)malloc(sizeof(char *) * 2);
 
 	if (tokens == NULL)
 	{

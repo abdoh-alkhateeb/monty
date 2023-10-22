@@ -25,7 +25,6 @@ void interpret_file(char *filename)
 	for (line_number = 1; getline(&line, &line_length, fp) != EOF; line_number++)
 	{
 		p = strchr(line, '\n');
-
 		if (p)
 			*p = '\0';
 
@@ -33,9 +32,11 @@ void interpret_file(char *filename)
 			continue;
 
 		tokens = parse_line(line);
-
 		if (tokens[0] == NULL)
+		{
+			free(tokens);
 			continue;
+		}
 
 		exit_status = run_command(tokens, line_number);
 		free(tokens);
