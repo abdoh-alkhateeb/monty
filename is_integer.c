@@ -16,7 +16,7 @@ bool is_integer(char *str)
 
 	while (*str != '\0')
 	{
-		if (*str < '0' || *str > '9')
+		if (!isdigit(*str))
 			return (false);
 
 		str++;
